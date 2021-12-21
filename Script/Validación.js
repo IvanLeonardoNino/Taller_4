@@ -21,13 +21,13 @@ function Mostrar() {
 function range() {
     let range = document.getElementById('Valor');
     let respuesta = document.getElementById('Resultado');
-    respuesta.value = numberWithCommas(range.value);
+    respuesta.value = numberWithCommas(range.value)
 };
 
 /*Esta función se encarga de poner punto o coma a los números*/
 
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 };
 
 /*----------------------------------------*/
@@ -41,12 +41,10 @@ function ValidarFormulario(evento) {
 
     var nombre = document.getElementById('Nombre').value;
     if (nombre.length == 0) {
-        alert('El campo nombre está vacío');
-
+        alert('El campo nombre está vacío')
     } else {
         if (nombre.length > 25) {
-            alert('El campo Nombre debe tener máximo 25 caracteres');
-
+            alert('El campo Nombre debe tener máximo 25 caracteres')
         }
     };
 
@@ -54,12 +52,10 @@ function ValidarFormulario(evento) {
 
     var apellido = document.getElementById('Apellido').value;
     if (apellido.length == 0) {
-        alert('El campo Apellido está vacío');
-
+        alert('El campo Apellido está vacío')
     } else {
         if (apellido.length > 25) {
-            alert('El campo Apellido debe tener máximo 25 caracteres');
-
+            alert('El campo Apellido debe tener máximo 25 caracteres')
         }
     };
 
@@ -67,25 +63,19 @@ function ValidarFormulario(evento) {
 
     var direc = document.getElementById('Direccion').value;
     if (direc.length == 0) {
-        alert('El campo Direccion está vacío');
-
+        alert('El campo Direccion está vacío')
     } else {
         if (direc.includes("cll")) {
-
         } else {
             if (direc.includes("cra")) {
-
             } else {
                 if (direc.includes("av")) {
-
                 } else {
                     if (direc.includes("anv")) {
-
                     } else {
                         if (direc.includes("trans")) {
-
                         } else {
-                            alert('El campo dirección debe contener alguno de las siguientes palabras cll, cra, av, anv, trans');
+                            alert('El campo dirección debe contener alguno de las siguientes palabras cll, cra, av, anv, trans')
                         }
                     }
                 }
@@ -97,51 +87,45 @@ function ValidarFormulario(evento) {
 
     var usuario = document.getElementById('CcUsuario').value;
     if (usuario.length == 0) {
-        alert('El campo Usuario está vacío');
-
+        alert('El campo Usuario está vacío')
     } else {
         if (usuario.length > 20) {
-            alert('El campo usuario debe tener maximo 20 caracteres');
-
+            alert('El campo usuario debe tener maximo 20 caracteres')
         } else {
             if (usuario.length < 10) {
-                alert('El campo usuario debe tener más de 10 caracteres');
-
+                alert('El campo usuario debe tener más de 10 caracteres')
             }
         }
     };
 
     //Función encargada de encontrar elementos extraños en el usuario
 
-    var extranos = "!¡<>«#$%&‘()*+,-_@:;./´'¿?[]{}";
+    var extranos = "!¡<>«#$%&‘()*+,-_@:;./'¿?[]{}";
 
     function tiene_extranos(texto) {
         for (i = 0; i < texto.length; i++) {
             if (extranos.indexOf(texto.charAt(i), 0) != -1) {
-                return 1;
+                return 1
             }
         }
-        return 0;
+        return 0
     };
 
     if (tiene_extranos(usuario) != 0) {
-        alert('El usuario no puede tener caracteres extraños');
+        alert('El usuario no puede tener caracteres extraños')
     };
 
     //----------Contraseña----------
 
     var password = document.getElementById('CcPaswd').value;
     if (password.length == 0) {
-        alert('El campo Contraseña está vacío');
-
+        alert('El campo Contraseña está vacío')
     } else {
         if (password.length > 20) {
-            alert('El campo Contraseña debe tener maximo 20 caracteres');
-
+            alert('El campo Contraseña debe tener maximo 20 caracteres')
         } else {
             if (password.length < 15) {
-                alert('El campo Contraseña debe tener más de 15 caracteres');
-
+                alert('El campo Contraseña debe tener más de 15 caracteres')
             }
         }
     };
@@ -174,16 +158,15 @@ function ValidarFormulario(evento) {
 
         for (i = 0; i < texto.length; i++) {
             if (datos[ubi].dato.indexOf(texto.charAt(i), 0) != -1) {
-                return 1;
+                return 1
             }
         }
-        return 0;
+        return 0
     };
 
     for (let i = 0; i < 5; i++) {
         if (General(password, i) == 0) {
-            alert(datos[i].texto);
-
+            alert(datos[i].texto)
         }
     };
 
@@ -191,20 +174,20 @@ function ValidarFormulario(evento) {
 
     var password2 = document.getElementById('CcPaswd2').value;
     if (password != password2) {
-        alert('Las contraseñas no coinciden');
+        alert('Las contraseñas no coinciden')
     };
 
     //----------Email----------
 
     var email = document.getElementById('Email').value;
     if (email.length == 0) {
-        alert('El campo Email está vacío');
+        alert('El campo Email está vacío')
     } else {
         if (email.length > 120) {
-            alert('El campo Email solo puede contener 120 caracteres');
+            alert('El campo Email solo puede contener 120 caracteres')
         }
     };
 
     this.submit();
 
-};
+}
