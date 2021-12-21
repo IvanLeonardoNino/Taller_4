@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("Formulario").addEventListener('submit', ValidarFormulario)
 });
 
@@ -14,31 +14,23 @@ function Mostrar() {
     }
 };
 
-/*Funcion Range*/
+/*----------------------------------------*/
 
+/*Función encargada de controlar el valor del range*/
 
+function range() {
+    let range = document.getElementById('Valor');
+    let respuesta = document.getElementById('Resultado');
+    respuesta.value = numberWithCommas(range.value);
+};
 
-let rangeInput = document.document.querySelector(".range-input input");
-let rangeValue = document.document.querySelector(".range-input .value div");
+/*Esta función se encarga de poner punto o coma a los números*/
 
-let start = parseFloat(rangeInput.min);
-let end = parseFloat(rangeInput.max);
-let step = parseFloat(rangeInput.step);
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
 
-for (let i = start; i <= end; i += step) {
-    rangeValue.innerHTML += '<div>' + i + '</div>';
-}
-
-rangeInput.addEventListener("input", function() {
-    let top = parseFloat(rangeInput.value) / step * -40;
-    rangeValue.style.marginTop = top + "px";
-});
-
-
-
-
-
-
+/*----------------------------------------*/
 
 //Función encargada de validar cada una de las partes del formulario
 
@@ -57,7 +49,6 @@ function ValidarFormulario(evento) {
 
         }
     };
-
 
     //----------Apellido----------
 
@@ -120,7 +111,6 @@ function ValidarFormulario(evento) {
         }
     };
 
-
     //Función encargada de encontrar elementos extraños en el usuario
 
     var extranos = "!¡<>«#$%&‘()*+,-_@:;./´'¿?[]{}";
@@ -132,8 +122,7 @@ function ValidarFormulario(evento) {
             }
         }
         return 0;
-    }
-
+    };
 
     if (tiene_extranos(usuario) != 0) {
         alert('El usuario no puede tener caracteres extraños');
@@ -155,30 +144,30 @@ function ValidarFormulario(evento) {
 
             }
         }
-    }
+    };
 
     //La siguiente parte se encarga de revisar y notificar si la contraseña ingresada por el usuario no cumple con alguno de los requisitos solicitados
 
     let datos = [{
-            'dato': "0123456789",
-            "texto": "La contraseña debe contener por lo menos un numero"
-        },
-        {
-            'dato': "abcdefghyjklmnñopqrstuvwxyzABCDEFGHYJKLMNÑOPQRSTUVWXYZ",
-            "texto": "La contraseña debe contener por lo menos una letra"
-        },
-        {
-            'dato': "abcdefghyjklmnñopqrstuvwxyz",
-            "texto": "La contraseña debe contener minúsculas"
-        },
-        {
-            'dato': "ABCDEFGHYJKLMNÑOPQRSTUVWXYZ",
-            "texto": "La contraseña debe contener mayúsculas"
-        },
-        {
-            'dato': "#%/&",
-            "texto": "La contraseña debe contener por lo menos un carácter especial [#,%,/,&]"
-        }
+        'dato': "0123456789",
+        "texto": "La contraseña debe contener por lo menos un numero"
+    },
+    {
+        'dato': "abcdefghyjklmnñopqrstuvwxyzABCDEFGHYJKLMNÑOPQRSTUVWXYZ",
+        "texto": "La contraseña debe contener por lo menos una letra"
+    },
+    {
+        'dato': "abcdefghyjklmnñopqrstuvwxyz",
+        "texto": "La contraseña debe contener minúsculas"
+    },
+    {
+        'dato': "ABCDEFGHYJKLMNÑOPQRSTUVWXYZ",
+        "texto": "La contraseña debe contener mayúsculas"
+    },
+    {
+        'dato': "#%/&",
+        "texto": "La contraseña debe contener por lo menos un carácter especial [#,%,/,&]"
+    }
     ];
 
     function General(texto, ubi) {
@@ -203,7 +192,7 @@ function ValidarFormulario(evento) {
     var password2 = document.getElementById('CcPaswd2').value;
     if (password != password2) {
         alert('Las contraseñas no coinciden');
-    }
+    };
 
     //----------Email----------
 
@@ -214,7 +203,7 @@ function ValidarFormulario(evento) {
         if (email.length > 120) {
             alert('El campo Email solo puede contener 120 caracteres');
         }
-    }
+    };
 
     this.submit();
 
